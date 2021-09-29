@@ -42,8 +42,7 @@ class IPay {
     return url;
   }
 
-  // bool parameterValidation() {
-
-  //   return false;
-  // }
+  bool parameterValidation() {
+    return false;
+  }
 }
