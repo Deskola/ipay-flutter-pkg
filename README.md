@@ -11,29 +11,56 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+iPay Checkout gateway is flutter package to enable businesses easily integrate with iPay payment solution.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+Generate Checkout URL that is be used in webview to access iPay multi-channel payment gateway e.g Mpesa, Mpesa Express, Vooma, Amex, Visa/Mastercard, Union Pay, Airtel money, Equitel, Bonga and more.
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
+#### Import the iPay package
 ```dart
-const like = 'sample';
+import 'package:ipaycheckout/ipaycheckout.dart'; 
 ```
 
-## Additional information
+#### Then intialize the Ipay class object. it takes two arguments, vendorId and vendorSecurityKey (these are supplied to you by iPay)
+```dart
+final ipay = IPay(vendorId: vendorId, vendorSecurityKey: securityKey);
+```
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+#### Then the call the chekoutUrl fuction wich takes the following arguments:
+live, oid, inv, ttl, tel, eml, curr, cbk, cst, crl.
+Refere to iPay documentation for more details https://dev.ipayafrica.com
+```dart
+Future<String> generateUrl(
+      String phoneNumber, String email, String amount) async {
+    final ipay = IPay(vendorId: vendorId, vendorSecurityKey: securityKey);
+    var oid = getRandomString(10);
+    var inv = oid;
+    var url = ipay.checkoutUrl(
+        live: live,
+        oid: oid,
+        inv: inv,
+        ttl: amount,
+        tel: phoneNumber,
+        eml: email,
+        curr: currency,
+        cbk: callBackUrl,
+        cst: cst,
+        crl: crl);
+
+    return url;
+  }
+```
+
+### This will generate a URL that can be embedded in a webview  to facilitate payment using iPay multi-channel payment gateway.
+
+## Example
+https://github.com/Deskola/ipay-flutter-lib-implem
+
+.
