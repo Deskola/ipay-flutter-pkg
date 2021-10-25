@@ -10,7 +10,7 @@ void main() {
             live: "1",
             oid: "123",
             inv: "123",
-            ttl: "1.001 ",
+            ttl: "1.0",
             tel: "+254711111111",
             eml: "example@example.com",
             curr: "KES",
