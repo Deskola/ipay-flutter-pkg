@@ -11,11 +11,14 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
 -->
 
-iPay Checkout gateway is flutter package to enable businesses easily integrate with iPay payment solution.
+iPay Checkout gateway is flutter package to enable businesses easily integrate with iPay payment solution. The package is dynamic to enable business to choose which payment
+channels they'd like to show their customers. 
 
 ## Features
 
-Generate Checkout URL that is be used in webview to access iPay multi-channel payment gateway e.g Mpesa, Mpesa Express, Vooma, Amex, Visa/Mastercard, Union Pay, Airtel money, Equitel, Bonga and more.
+1) Generate Checkout URL that is be used in webview to access iPay multi-channel payment gateway e.g Mpesa, Mpesa Express, Vooma, Amex, Visa/Mastercard, Union Pay, Airtel money, Equitel, Bonga and more.
+
+2) Dynamically enable payment channels as per your business need.
 
 ## Getting started
 
@@ -52,7 +55,23 @@ Future<String> generateUrl(
         curr: currency,
         cbk: callBackUrl,
         cst: cst,
-        crl: crl);
+        crl: crl,
+
+        //enable the channels you need 
+        mpesa: mpesa,
+        bonga: bonga,
+        airtel: airtel,
+        equity: equity,
+        mobilebanking: mobilebanking,
+        creditcard: creditcard,
+        mkoporahisi: mkoporahisi,
+        saida: saida,
+        elipa: elipa,
+        unionpay: unionpay,
+        mvisa: mvisa,
+        vooma: vooma,
+        pesalink: pesalink,
+        autopay: autopay);
 
     return url;
   }
