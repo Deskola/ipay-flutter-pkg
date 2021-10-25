@@ -1,6 +1,6 @@
 name: ipaycheckout
 description: A new Flutter package project.
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/Deskola/ipay-flutter-pkg
 
 environment:
@@ -11,6 +11,7 @@ dependencies:
   flutter:
     sdk: flutter 
   crypto: ^3.0.1
+  
 
 dev_dependencies:
   flutter_test:
