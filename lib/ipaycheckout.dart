@@ -43,7 +43,8 @@ class IPay {
   }) {
     var key = utf8.encode(vendorSecurityKey);
     var newPhoneNumber = tel.replaceAll(RegExp(r'[^\w]+'), '');
-    var finalAmount = double.parse(ttl).toStringAsFixed(0);
+    var finalAmount =
+        double.parse(ttl.replaceAll(RegExp(r'[^\w.]+'), '')).toStringAsFixed(0);
     var dataString =
         "$live$oid$inv$finalAmount$newPhoneNumber$eml$vendorId$curr$p1$p2$p3$p4$cbk$cst$crl";
     var bytes = utf8.encode(dataString);
@@ -56,9 +57,5 @@ class IPay {
         "live=$live&oid=$oid&inv=$inv&ttl=$finalAmount&tel=$newPhoneNumber&eml=$eml&vid=$vendorId&curr=$curr&p1=$p1&p2=$p2&p3=$p3&p4=$p4&cbk=$cbk&cst=$cst&crl=$crl&hsh=$digest&mpesa=$mpesa&bonga=$bonga&airtel=$airtel&equity=$equity&creditcard=$creditcard&mobilebanking=$mobilebanking&mkoporahisi=$mkoporahisi&saida=$saida&elipa=$elipa&unionpay=$unionpay&mvisa=$mvisa&vooma=$vooma&pesalink=$pesalink&autopay=$autopay";
 
     return url;
-  }
-
-  bool parameterValidation() {
-    return false;
   }
 }

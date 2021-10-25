@@ -10,7 +10,7 @@ void main() {
             live: "1",
             oid: "123",
             inv: "123",
-            ttl: "1.0",
+            ttl: "20,200.05",
             tel: "+254711111111",
             eml: "example@example.com",
             curr: "KES",
@@ -31,6 +31,6 @@ void main() {
             unionpay: "1",
             pesalink: "1",
             autopay: "1"),
-        "https://payments.ipayafrica.com/v3/ke?live=1&oid=123&inv=123&ttl=1&tel=254711111111&eml=example@example.com&vid=demo&curr=KES&p1=&p2=&p3=&p4=&cbk=http://example.com&cst=0&crl=2&hsh=c120e21611bce174668d86fb03b73c41df22d753&mpesa=1&bonga=1&airtel=1&equity=1&creditcard=0&mobilebanking=1&mkoporahisi=1&saida=1&elipa=1&unionpay=1&mvisa=1&vooma=0&pesalink=1&autopay=1");
+        "https://payments.ipayafrica.com/v3/ke?live=1&oid=123&inv=123&ttl=20200&tel=254711111111&eml=example@example.com&vid=demo&curr=KES&p1=&p2=&p3=&p4=&cbk=http://example.com&cst=0&crl=2&hsh=fb4c25216a98aa2ab6170bdf4162d48e7bda6f4e&mpesa=1&bonga=1&airtel=1&equity=1&creditcard=0&mobilebanking=1&mkoporahisi=1&saida=1&elipa=1&unionpay=1&mvisa=1&vooma=0&pesalink=1&autopay=1");
   });
 }
