@@ -83,11 +83,12 @@ Future<String> generateUrl(
 
 ### This will generate a URL that can be embedded in a webview  to facilitate payment using iPay multi-channel payment gateway.
 
-## Recurring Payment (NEW) and Card Tokenization
+## Recurring Payment and Card Tokenization (NEW)
 Recurring Payment enable the customer card to be tokenized and this enable the business to set frequency of payment.
 
-** the recurring value is either a true or false.
-** If Recurring is enabled, only card channels will be available i.e. VISA/MASTERCARD
+### Note
+1. the recurring value is either a true or false.
+2. If Recurring is enabled, only card channels will be available i.e. VISA/MASTERCARD
 
 ## Example
 https://github.com/Deskola/ipay-flutter-lib-implem
