@@ -40,6 +40,7 @@ class IPay {
     String vooma = "0",
     String pesalink = "0",
     String autopay = "0",
+    bool recurring = false,
   }) {
     var key = utf8.encode(vendorSecurityKey);
     var newPhoneNumber = tel.replaceAll(RegExp(r'[^\w]+'), '');
@@ -52,9 +53,16 @@ class IPay {
     var hmacSha1 = Hmac(sha1, key); // HMAC-SHA256
     var digest = hmacSha1.convert(bytes);
 
-    //Craft url
-    final url = baseUrl +
-        "live=$live&oid=$oid&inv=$inv&ttl=$finalAmount&tel=$newPhoneNumber&eml=$eml&vid=$vendorId&curr=$curr&p1=$p1&p2=$p2&p3=$p3&p4=$p4&cbk=$cbk&cst=$cst&crl=$crl&hsh=$digest&mpesa=$mpesa&bonga=$bonga&airtel=$airtel&equity=$equity&creditcard=$creditcard&mobilebanking=$mobilebanking&mkoporahisi=$mkoporahisi&saida=$saida&elipa=$elipa&unionpay=$unionpay&mvisa=$mvisa&vooma=$vooma&pesalink=$pesalink&autopay=$autopay";
+    // check if recurring is enabled
+    var url = '';
+
+    if (recurring == true) {
+      url = baseUrl +
+          "live=$live&oid=$oid&inv=$inv&ttl=$finalAmount&tel=$newPhoneNumber&eml=$eml&vid=$vendorId&curr=$curr&p1=$p1&p2=$p2&p3=$p3&p4=$p4&cbk=$cbk&cst=$cst&crl=$crl&hsh=$digest&mpesa=$mpesa&bonga=$bonga&airtel=$airtel&equity=$equity&creditcard=$creditcard&mobilebanking=$mobilebanking&mkoporahisi=$mkoporahisi&saida=$saida&elipa=$elipa&unionpay=$unionpay&mvisa=$mvisa&vooma=$vooma&pesalink=$pesalink&autopay=$autopay&recurring=true";
+    } else {
+      url = baseUrl +
+          "live=$live&oid=$oid&inv=$inv&ttl=$finalAmount&tel=$newPhoneNumber&eml=$eml&vid=$vendorId&curr=$curr&p1=$p1&p2=$p2&p3=$p3&p4=$p4&cbk=$cbk&cst=$cst&crl=$crl&hsh=$digest&mpesa=$mpesa&bonga=$bonga&airtel=$airtel&equity=$equity&creditcard=$creditcard&mobilebanking=$mobilebanking&mkoporahisi=$mkoporahisi&saida=$saida&elipa=$elipa&unionpay=$unionpay&mvisa=$mvisa&vooma=$vooma&pesalink=$pesalink&autopay=$autopay";
+    }
 
     return url;
   }
