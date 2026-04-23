@@ -41,6 +41,7 @@ class IPay {
     String pesalink = "0",
     String autopay = "0",
     bool recurring = false,
+    String lbk = ""
   }) {
     var key = utf8.encode(vendorSecurityKey);
     var newPhoneNumber = tel.replaceAll(RegExp(r'[^\w]+'), '');
@@ -58,10 +59,10 @@ class IPay {
 
     if (recurring == true) {
       url = baseUrl +
-          "live=$live&oid=$oid&inv=$inv&ttl=$finalAmount&tel=$newPhoneNumber&eml=$eml&vid=$vendorId&curr=$curr&p1=$p1&p2=$p2&p3=$p3&p4=$p4&cbk=$cbk&cst=$cst&crl=$crl&hsh=$digest&mpesa=$mpesa&bonga=$bonga&airtel=$airtel&equity=$equity&creditcard=$creditcard&mobilebanking=$mobilebanking&mkoporahisi=$mkoporahisi&saida=$saida&elipa=$elipa&unionpay=$unionpay&mvisa=$mvisa&vooma=$vooma&pesalink=$pesalink&autopay=$autopay&recurring=true";
+          "live=$live&oid=$oid&inv=$inv&ttl=$finalAmount&tel=$newPhoneNumber&eml=$eml&vid=$vendorId&curr=$curr&p1=$p1&p2=$p2&p3=$p3&p4=$p4&cbk=$cbk&cst=$cst&crl=$crl&hsh=$digest&mpesa=$mpesa&bonga=$bonga&airtel=$airtel&equity=$equity&creditcard=$creditcard&mobilebanking=$mobilebanking&mkoporahisi=$mkoporahisi&saida=$saida&elipa=$elipa&unionpay=$unionpay&mvisa=$mvisa&vooma=$vooma&pesalink=$pesalink&autopay=$autopay&recurring=true&lbk=$lbk";
     } else {
       url = baseUrl +
-          "live=$live&oid=$oid&inv=$inv&ttl=$finalAmount&tel=$newPhoneNumber&eml=$eml&vid=$vendorId&curr=$curr&p1=$p1&p2=$p2&p3=$p3&p4=$p4&cbk=$cbk&cst=$cst&crl=$crl&hsh=$digest&mpesa=$mpesa&bonga=$bonga&airtel=$airtel&equity=$equity&creditcard=$creditcard&mobilebanking=$mobilebanking&mkoporahisi=$mkoporahisi&saida=$saida&elipa=$elipa&unionpay=$unionpay&mvisa=$mvisa&vooma=$vooma&pesalink=$pesalink&autopay=$autopay";
+          "live=$live&oid=$oid&inv=$inv&ttl=$finalAmount&tel=$newPhoneNumber&eml=$eml&vid=$vendorId&curr=$curr&p1=$p1&p2=$p2&p3=$p3&p4=$p4&cbk=$cbk&cst=$cst&crl=$crl&hsh=$digest&mpesa=$mpesa&bonga=$bonga&airtel=$airtel&equity=$equity&creditcard=$creditcard&mobilebanking=$mobilebanking&mkoporahisi=$mkoporahisi&saida=$saida&elipa=$elipa&unionpay=$unionpay&mvisa=$mvisa&vooma=$vooma&pesalink=$pesalink&autopay=$autopay&lbk=$lbk";
     }
 
     return url;

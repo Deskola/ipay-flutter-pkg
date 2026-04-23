@@ -12,33 +12,34 @@ and the Flutter guide for
 -->
 
 iPay Checkout gateway is flutter package to enable businesses easily integrate with iPay payment solution. The package is dynamic to enable business to choose which payment
-channels they'd like to show their customers. 
+channels they'd like to show their customers.
 
 ## Features
 
 1) Generate Checkout URL that is be used in webview to access iPay multi-channel payment gateway e.g Mpesa, Mpesa Express, Vooma, Amex, Visa/Mastercard, Union Pay, Airtel money, Equitel, Bonga and more.
-
 2) Dynamically enable payment channels as per your business need.
 
 ## Getting started
 
-
-
 ## Usage
 
 #### Import the iPay package
+
 ```dart
 import 'package:ipaycheckout/ipaycheckout.dart'; 
 ```
 
 #### Then intialize the Ipay class object. it takes two arguments, vendorId and vendorSecurityKey (these are supplied to you by iPay)
+
 ```dart
 final ipay = IPay(vendorId: vendorId, vendorSecurityKey: securityKey);
 ```
 
 #### Then the call the chekoutUrl fuction wich takes the following arguments:
+
 live, oid, inv, ttl, tel, eml, curr, cbk, cst, crl.
 Refere to iPay documentation for more details https://dev.ipayafrica.com
+
 ```dart
 Future<String> generateUrl(
       String phoneNumber, String email, String amount) async {
@@ -75,6 +76,7 @@ Future<String> generateUrl(
 
         //enable card recurring payment. By default it's disabled 
         recurring: recurring
+	lbk: linkbackUrl
       );
 
     return url;
@@ -84,13 +86,16 @@ Future<String> generateUrl(
 ### This will generate a URL that can be embedded in a webview  to facilitate payment using iPay multi-channel payment gateway.
 
 ## Recurring Payment and Card Tokenization (NEW)
+
 Recurring Payment enable the customer card to be tokenized and this enable the business to set frequency of payment.
 
 ### Note
+
 1. the recurring value is either a true or false.
 2. If Recurring is enabled, only card channels will be available i.e. VISA/MASTERCARD
 
 ## Example
+
 https://github.com/Deskola/ipay-flutter-lib-implem
 
 .
